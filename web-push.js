@@ -121,16 +121,10 @@ function getVAPIDPublicKey() {
 
 function unSubscribe() {
 	return new Promise(function(resolve, reject) {
-		var endpoint;
 		navigator.serviceWorker.ready.then(function(swReg) {
 			return swReg.pushManager.getSubscription();
 		}).then(function(subscription) {
-			if (null == subscription) {
-				resolve();
-			} else {
-				endpoint = subscription.endpoint;
-				return subscription.unsubscribe();
-			}
+			return subscription.unsubscribe();
 		}).then(function(successful) {
 			resolve(successful);
 		}).catch(function(error) {
