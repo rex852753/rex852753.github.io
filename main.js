@@ -10,6 +10,8 @@ if (isSupportWebPushAPI()) {
 				info.textContent = successful;
 				btn.textContent = 'Login';
 				isLogin = false;
+			}).catch(function(error) {
+				info.textContent = error;
 			});
 		} else {
 			subscribe().then(function(subscription) {
