@@ -43,6 +43,7 @@ function urlBase64ToUint8Array(base64String) {
 
 function isSupportWebPushAPI() {
 	var info = getBrowserInfo().split('_');
+	console.log(info);
 	var name = info[0];
 	var version = info[1];
 
