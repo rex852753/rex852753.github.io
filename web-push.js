@@ -61,7 +61,7 @@ function isSupportWebPushAPI() {
 		((name == 'Firefox') && (version < 46))) {
 		return false;
 	}
-	console.log(info);
+
 	return true;
 }
 
