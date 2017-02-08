@@ -6,13 +6,18 @@ if (isSupportWebPushAPI()) {
 	regServiceWorker();
 	btn.addEventListener('click', function() {
 		if (isLogin) {
-			unSubscribe().then(function(successful) {
+			navigator.serviceWorker.ready.then(function(reg) {
+  reg.pushManager.getSubscription().then(function(subscription) {
+    subscription.unsubscribe().then(function(successful) {
 				info.textContent = successful;
 				btn.textContent = 'Login';
 				isLogin = false;
-			}).catch(function(error) {
-				info.textContent = error;
-			});
+    }).catch(function(e) {
+	info.textContent = error;
+    })
+  })        
+});
+	
 		} else {
 			subscribe().then(function(subscription) {
 				info.textContent = JSON.stringify(subscription);
