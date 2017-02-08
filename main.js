@@ -1,7 +1,7 @@
 var isLogin = false;
 var info = document.querySelector("#info");
 var btn = document.querySelector("#btn");
-info.textContent = getBrowserInfo();
+
 if (isSupportWebPushAPI()) {
 	regServiceWorker();
 	btn.addEventListener('click', function() {
@@ -24,3 +24,4 @@ if (isSupportWebPushAPI()) {
 	btn.disabled = true;
 }
 
+info.textContent = getBrowserInfo();
