@@ -134,7 +134,7 @@ function unSubscribe() {
 		}).then(function(successful) {
 			resolve(successful);
 		}).catch(function(error) {
-			reject();
+			reject(error);
 		});
 	});
 }
