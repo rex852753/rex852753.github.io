@@ -1,7 +1,7 @@
 var isLogin = false;
 var info = document.querySelector("#info");
 var btn = document.querySelector("#btn");
-
+info.textContent = isSupportWebPushAPI();
 if (isSupportWebPushAPI()) {
 	regServiceWorker();
 	btn.addEventListener('click', function() {
