@@ -24,4 +24,4 @@ if (isSupportWebPushAPI()) {
 	btn.disabled = true;
 }
 
-info.textContent = getBrowserInfo();
+info.textContent = navigator.userAgent();
