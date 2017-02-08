@@ -6,8 +6,8 @@ if (isSupportWebPushAPI()) {
 	regServiceWorker();
 	btn.addEventListener('click', function() {
 		if (isLogin) {
-			unSubscribe().then(function() {
-				info.textContent = '';
+			unSubscribe().then(function(successful) {
+				info.textContent = successful;
 				btn.textContent = 'Login';
 				isLogin = false;
 			});
