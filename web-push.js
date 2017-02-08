@@ -132,9 +132,7 @@ function unSubscribe() {
 				return subscription.unsubscribe();
 			}
 		}).then(function(successful) {
-			return unpairSubscriptionWithServer(endpoint);
-		}).then(function() {
-			resolve();
+			resolve(successful);
 		}).catch(function(error) {
 			reject();
 		});
