@@ -8,8 +8,9 @@ if (isSupportWebPushAPI()) {
 		if (isLogin) {
 			navigator.serviceWorker.ready.then(function(reg) {
   reg.pushManager.getSubscription().then(function(subscription) {
+	  info.textContent = JSON.stringify(subscription);
     subscription.unsubscribe().then(function(successful) {
-				info.textContent = successful;
+				info.textContent += successful;
 				btn.textContent = 'Login';
 				isLogin = false;
     }).catch(function(e) {
