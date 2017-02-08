@@ -43,7 +43,7 @@ function urlBase64ToUint8Array(base64String) {
 
 function isSupportWebPushAPI() {
 	var info = getBrowserInfo().split('_');
-	console.log(info);
+
 	var name = info[0];
 	var version = info[1];
 
@@ -61,7 +61,7 @@ function isSupportWebPushAPI() {
 		((name == 'Firefox') && (version < 46))) {
 		return false;
 	}
-
+	console.log(info);
 	return true;
 }
 
