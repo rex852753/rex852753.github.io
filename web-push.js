@@ -143,44 +143,14 @@ function unSubscribe() {
 
 function pairSubscriptionWithServer(subscription) {
 	return new Promise(function (resolve, reject) {
-		subscription = subscription.toJSON();
-		var request = new XMLHttpRequest();
-		var url = "https://rtsai.synology.io/forum/webapi/web_push";
-		var type = 'type=webpush_vapid';
-		var info = 'info=' + getBrowserInfo();
-		var endpoint = 'endpoint=' + subscription.endpoint;
-		var p256dh = 'p256dh=' + subscription.keys.p256dh;
-		var auth = 'auth=' + subscription.keys.auth;
-		var params = [type, info, endpoint, p256dh, auth].join('&');
-
-		request.open("POST", url);
-		request.onload = function(e) {
-			if (request.status === 200) {
-				resolve(subscription);
-			} else {
-				reject(request.statusText);
-			}
-		};
-		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		request.send(params);
+		resolve(subscription);
 	});
 }
 
 function unpairSubscriptionWithServer(endpoint) {
 	return new Promise(function (resolve, reject) {
-		var request = new XMLHttpRequest();
-		var url = "https://rtsai.synology.io/forum/webapi/web_push";
-		endpoint = 'endpoint=' + endpoint;
 
-		request.open("DELETE", url);
-		request.onload = function(e) {
-			if (request.status === 200) {
 				resolve();
-			} else {
-				reject(request.statusText);
-			}
-		};
-		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		request.send(endpoint);
+
 	});
 }
